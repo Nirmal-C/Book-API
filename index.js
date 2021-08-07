@@ -62,6 +62,27 @@ booky.get("/c/:category",(req,res) => {
     return res.json({book: getSpecificBook });
 });
 
+/*
+Route         /author
+Description   Get specific book on Languages
+Access        PUBLIC
+Parameter     Language
+Methods       GET
+*/
+
+booky.get("/l/:language",(req,res) => {
+    const getSpecificBook = database.books.filter(
+        (book) => book.language.includes(req.params.language)
+    )
+
+    if (getSpecificBook.length === 0){
+        return res.json({error: `NO book found for the language of ${req.params.language}`})
+    }
+
+    return res.json({book: getSpecificBook });
+});
+
+
 
 /*
 Route         /author
@@ -73,6 +94,24 @@ Methods       GET
 
 booky.get("/author", (req,res) => {
     return res.json({authors: database.author});
+});
+
+/*
+Route            /author/id
+Description      get a specific author based on id
+Access           PUBLIC
+Parameter        id
+Methods          GET
+*/
+
+booky.get("/author/id/:id", (req,res) => {
+    const getSpecificAuthor = database.author.filter(
+        (author) => author.id === parseInt(req.params.id)
+    );
+    if(getSpecificAuthor.length === 0){
+        return res.json({error: `No Books found for the Author ${req.params.id}`});
+    }
+    return res.json({author: getSpecificAuthor});
 });
 
 
@@ -95,21 +134,62 @@ booky.get("/author/book/:isbn",(req,res) => {
     }
 
     return res.json({authors: getSpecificAuthor});
-
-
 });
 
 /*
-Route         /author/book
+Route         /publication
 Description   Get all publication
 Access        PUBLIC
 Parameter     NONE
 Methods       GET
 */
 
-booky.get("/publications",(req,res) =>{
+booky.get("/publication",(req,res) =>{
     return res.json({publications: database.publication});
 })
+
+/*
+Route         /publication/id
+Description   Get a specific publication on books
+Access        PUBLIC
+Parameter     id
+Methods       GET
+*/
+
+booky.get("/publication/id/:id",(req,res) => {
+    const getSpecificPublication = database.publication.filter(
+        (publication) => publication.id === parseInt(req.params.id)
+
+    )
+
+    if (getSpecificPublication.length === 0){
+        return res.json({error: `NO Books found for the publication ID of ${req.params.id}`})
+    }
+
+    return res.json({publications: getSpecificPublication});
+});
+
+
+/*
+Route         /publication/book
+Description   Get a list of publications based on books
+Access        PUBLIC
+Parameter     ISBN
+Methods       GET
+*/
+
+booky.get("/publication/book/:isbn",(req,res) => {
+    const getSpecificPublication = database.publication.filter(
+        (publication) => publication.books.includes(req.params.isbn)
+
+    )
+
+    if (getSpecificPublication.length === 0){
+        return res.json({error: `NO publication found for the book of ${req.params.isbn}`})
+    }
+
+    return res.json({publication: getSpecificPublication});
+});
 
 
 
