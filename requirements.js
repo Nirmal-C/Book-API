@@ -13,21 +13,28 @@
 
 //We have to design and code an API ovrer this.
 
-//1. BBOKS
+//1. BOOKS
 //We need API :-
 //To get all the books - DONE
 //To get specific book - DONE
 //To get a list of books based on category - DONE
-//TO get a list of books based on languages 
+//TO get a list of books based on languages - DONE
 
 //2. AUTHORS
 //We need an API:-
 //To get all the authors - DONE
-//To get a specific author based on ID 
+//To get a specific author based on ID - DONE 
 //To get a list of authors based on books - DONE
 
 //3. PUBLICATIONS
 //We need an API :-
 //To get all the publications - DONE 
-//To get a specific publication
-//To get a list of publications based on books
+//To get a specific publication - DONE
+//To get a list of publications based on books - DONE
+
+
+
+//POST REQUEST
+//1. ADD NEW BOOK - DONE
+//2. ADD NEW PUBLICATION - DONE
+//3.ADD NEW AUTHOR - DONE

@@ -1,4 +1,5 @@
 const express = require("express");
+var bodyParser = require("body-parser");
 
 //Database
 const database = require("./database");
@@ -6,7 +7,10 @@ const database = require("./database");
 
 //Initialise express 
 
-const booky = express();
+const booky = express(); 
+
+booky.use(bodyParser.urlencoded({extended: true}));
+booky.use(bodyParser.json());
 
 /*
 Route         /
@@ -192,6 +196,51 @@ booky.get("/publication/book/:isbn",(req,res) => {
 });
 
 
+//POST
+
+/*
+Route         /book/new
+Description   Add new books
+Access        PUBLIC
+Parameter     NONE
+Methods       POST
+*/
+
+booky.post("/book/new" ,(req,res) => {
+    const newBook = req.body;
+    database.books.push(newBook);
+    return res.json({updatedBooks: database.books})
+});
+
+/*
+Route         /author/new
+Description   Add new authors
+Access        PUBLIC
+Parameter     NONE
+Methods       POST
+*/
+
+booky.post("/author/new",(req,res) => {
+    const newAuthor = req.body;
+    database.author.push(newAuthor);
+    return res.json(database.author);
+});
+
+
+/*
+Route         /publicationnew
+Description   Add new publications
+Access        PUBLIC
+Parameter     NONE
+Methods       POST
+*/
+
+booky.post("/publication/new", (req,res) => {
+    const newPublication = req.body;
+    database.publication.push(newPublication);
+    return res.json(database.publication);
+
+});
 
 
 booky.listen(4000,() => {
