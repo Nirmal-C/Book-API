@@ -38,3 +38,12 @@
 //1. ADD NEW BOOK - DONE
 //2. ADD NEW PUBLICATION - DONE
 //3.ADD NEW AUTHOR - DONE
+
+/**********************PUT*****************/
+//Update book details if author is changed. 
+
+
+/**********************PUT*****************/
+//1.Delete a book - DONE
+//2.Delelte author from book 
+//3.Delelte author from book and related book from author - DONE
