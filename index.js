@@ -48,7 +48,7 @@ booky.get("/is/:isbn",(req,res) => {
 
 /*
 Route         /c
-Description   Get specific book on ISBN
+Description   Get specific book on Category
 Access        PUBLIC
 Parameter     category
 Methods       GET
