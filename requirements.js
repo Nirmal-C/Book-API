@@ -43,7 +43,10 @@
 //Update book details if author is changed. 
 
 
-/**********************PUT*****************/
+/**********************DELETE*****************/
 //1.Delete a book - DONE
-//2.Delelte author from book 
+//2.Delelte author from book -  
 //3.Delelte author from book and related book from author - DONE
+
+
+
